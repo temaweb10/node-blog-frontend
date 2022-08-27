@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import { AiOutlineEdit } from "react-icons/ai";
 import { BiTrashAlt } from "react-icons/bi";
 import { Link, useNavigate, useParams } from "react-router-dom";

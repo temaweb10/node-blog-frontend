@@ -7,7 +7,6 @@ import Error404 from "./components/404/Error404";
 import AddPost from "./components/add-post/AddPost";
 import EditPost from "./components/edit-post/EditPost";
 import Header from "./components/header/Header";
-import Post from "./components/post/Post";
 import PostId from "./components/post/PostId";
 import Posts from "./components/Posts/Posts";
 
