@@ -5,9 +5,9 @@ import { BiTrashAlt } from "react-icons/bi";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import styles from "../post/Post.module.scss";
 
-function Post({ data }) {
+function Post({ data, allPosts, filterPosts }) {
   const navigate = useNavigate();
-  console.log(data);
+  console.log(allPosts);
   const params = useParams();
   console.log(params);
 
@@ -19,7 +19,13 @@ function Post({ data }) {
       .then((res) => console.log("/posts"))
       .catch((err) => console.log(err));
 
-    navigate("/posts", { replace: true });
+    const filterArr = allPosts.filter((p) => {
+      return e.target.getAttribute("data-id") !== p._id;
+    });
+
+    filterPosts(filterArr);
+
+    /*   navigate("/posts", { replace: true }); */
   };
 
   return (

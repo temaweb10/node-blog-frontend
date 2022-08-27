@@ -24,6 +24,7 @@ function AddPost() {
       })
       .then(function (response) {
         console.log(response);
+        navigate("/posts");
       })
       .catch(function (error) {
         console.log(error);

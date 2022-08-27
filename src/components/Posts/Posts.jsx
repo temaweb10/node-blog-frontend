@@ -19,14 +19,29 @@ function Posts() {
     getData();
   }, []);
 
+  const filterPosts = (postsFilter) => {
+    setPosts(postsFilter);
+  };
+
   return (
     <div className="page">
       <div className={styles.posts}>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           {loading ? (
             posts.map((elem) => {
               return (
-                <Post data={elem} key={Date.now() + Math.random(128) * 10} />
+                <Post
+                  allPosts={posts}
+                  filterPosts={filterPosts}
+                  data={elem}
+                  key={Date.now() + Math.random(128) * 10}
+                />
               );
             })
           ) : (
