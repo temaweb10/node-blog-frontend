@@ -1,11 +1,15 @@
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Loading from "../loading/Loading";
 import Post from "../post/Post";
 import styles from "../Posts/Posts.module.scss";
 
 function Posts() {
   const [posts, setPosts] = useState();
   const [loading, setLoading] = useState(null);
+
+  const [animationParent] = useAutoAnimate();
 
   useEffect(() => {
     const getData = async () => {
@@ -27,6 +31,7 @@ function Posts() {
     <div className="page">
       <div className={styles.posts}>
         <div
+          ref={animationParent}
           style={{
             display: "flex",
             flexDirection: "column",
@@ -45,9 +50,7 @@ function Posts() {
               );
             })
           ) : (
-            <div className="parent-loading">
-              <h1 className="loading-text">Загрузка...</h1>
-            </div>
+            <Loading />
           )}
         </div>
       </div>

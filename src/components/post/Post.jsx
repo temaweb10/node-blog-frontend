@@ -7,13 +7,10 @@ import styles from "../post/Post.module.scss";
 
 function Post({ data, allPosts, filterPosts }) {
   const navigate = useNavigate();
-  console.log(allPosts);
   const params = useParams();
-  console.log(params);
 
   const deletePost = (e) => {
     const id = e.target.getAttribute("data-id");
-    console.log("daelete", e.target.getAttribute("data-id"));
     axios
       .delete(`https://her-backendg.herokuapp.com/api/post/${id}`)
       .then((res) => console.log("/posts"))
@@ -24,8 +21,6 @@ function Post({ data, allPosts, filterPosts }) {
     });
 
     filterPosts(filterArr);
-
-    /*   navigate("/posts", { replace: true }); */
   };
 
   return (

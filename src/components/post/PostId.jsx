@@ -3,21 +3,29 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineEdit } from "react-icons/ai";
 import { BiTrashAlt } from "react-icons/bi";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import Error from "../error/Error";
+import Loading from "../loading/Loading";
 import styles from "../post/Post.module.scss";
 function Post() {
   const params = useParams();
   const [post, setPost] = useState();
-  const [currentPost, setCurrentPost] = useState();
+  const [error, setError] = useState(false);
   const [loading, setLoading] = useState(null);
   const navigate = useNavigate();
 
   const getData = async () => {
-    const apiUrl = `/api/post/${params.id}`;
-    await axios.get(apiUrl).then((resp) => {
-      const allPersons = resp.data;
-      setPost(allPersons);
-      setLoading("true");
-    });
+    const apiUrl = `https://her-backendg.herokuapp.com/api/post/${params.id}`;
+    await axios
+      .get(apiUrl)
+      .then((resp) => {
+        const allPersons = resp.data;
+        setPost(allPersons);
+        setLoading("true");
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(true);
+      });
   };
 
   useEffect(() => {
@@ -37,7 +45,9 @@ function Post() {
 
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
-      {loading ? (
+      {error ? (
+        <Error />
+      ) : loading ? (
         <div className={styles.post}>
           <div className={styles["parent-title"]}>
             <Link to={`/post/${post._id}`} style={{ textDecoration: "none" }}>
@@ -69,9 +79,7 @@ function Post() {
           <p className={styles["post-text"]}>{post.text}</p>
         </div>
       ) : (
-        <div className="parent-loading">
-          <h1 className="loading-text">Загрузка...</h1>
-        </div>
+        <Loading />
       )}
     </div>
   );

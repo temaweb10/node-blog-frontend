@@ -5,7 +5,6 @@ import styles from "../add-post/AddPost.module.scss";
 import Button from "../button/Button";
 import Header from "../header/Header";
 import Input from "../input/Input";
-
 function EditPost() {
   const [values, setValues] = useState({
     title: "",
