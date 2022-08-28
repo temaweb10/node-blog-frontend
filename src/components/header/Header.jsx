@@ -30,7 +30,11 @@ function Header() {
             }}
             aria-label="recipe"
           >
-            {localStorage.getItem("login").slice(0, 1).toUpperCase()}
+            {localStorage.getItem("login") ? (
+              localStorage.getItem("login").slice(0, 1).toUpperCase()
+            ) : (
+              <p>error</p>
+            )}
           </Avatar>
         </Link>
       </nav>

@@ -1,6 +1,7 @@
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Auth from "../auth/Auth";
 import Loading from "../loading/Loading";
 import Post from "../post/Post";
 import styles from "../Posts/Posts.module.scss";

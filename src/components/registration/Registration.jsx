@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "../add-post/AddPost.module.scss";
 import Button from "../button/Button";
 import Header from "../header/Header";
@@ -30,10 +30,10 @@ function Registration() {
   };
 
   return (
-    <div>
-      <Header />
+    <div className={styles["form-parent"]}>
       <div className={styles["add-post"]}>
         <div className={styles["add-post-content"]}>
+          <h1 className={styles["form-title"]}>Регистрация</h1>
           <div className={styles["input-div"]}>
             <Input
               type="text"
@@ -57,8 +57,11 @@ function Registration() {
           </div>
 
           <div className="form-button">
-            <Button click={register}>Добавить</Button>
+            <Button click={register}>Создать аккаунт</Button>
           </div>
+          <Link to="/login" className={styles["bottom-link"]}>
+            Уже есть аккаунт?
+          </Link>
         </div>
       </div>
     </div>

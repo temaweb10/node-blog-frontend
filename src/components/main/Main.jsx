@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Auth from "../auth/Auth";
 import styles from "../main/Main.module.scss";
 function Main() {
   return (
     <div className="page">
+      <Auth />
       <div className={styles["main-content"]}>
         <h2 className={styles["main-title"]}>PASHKOVBLOG</h2>
         <p className={styles["main-text"]}>

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineEdit } from "react-icons/ai";
 import { BiTrashAlt } from "react-icons/bi";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import Auth from "../auth/Auth";
 import Error from "../error/Error";
 import Loading from "../loading/Loading";
 import styles from "../post/Post.module.scss";
@@ -32,19 +33,9 @@ function Post() {
     getData();
   }, []);
 
-  const deletePost = (e) => {
-    const id = e.target.getAttribute("data-id");
-    console.log("daelete", e.target.getAttribute("data-id"));
-    axios
-      .delete(`/api/post/${id}`)
-      .then((res) => console.log("/posts"))
-      .catch((err) => console.log(err));
-
-    navigate("/posts", { replace: true });
-  };
-
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
+      <Auth></Auth>
       {error ? (
         <Error />
       ) : loading ? (
@@ -53,19 +44,6 @@ function Post() {
             <Link to={`/post/${post._id}`} style={{ textDecoration: "none" }}>
               <h1 className={styles["post-title"]}>{post.title}</h1>
             </Link>
-
-            <div>
-              <BiTrashAlt
-                className="icon"
-                style={{ color: "#000", fontSize: "32px" }}
-                data-id={post._id}
-                onClick={deletePost}
-              />
-
-              <Link to={`/edit-post/${post._id}`}>
-                <AiOutlineEdit style={{ color: "#000", fontSize: "32px" }} />
-              </Link>
-            </div>
           </div>
 
           <div style={{ display: "flex" }}>

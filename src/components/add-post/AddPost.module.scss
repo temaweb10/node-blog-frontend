@@ -1,27 +1,60 @@
-.add-post {
-  display: flex;
-  justify-content: center;
-  .add-post-content {
+body {
+  height: 100vh;
+  align-items: center;
+  .form-parent {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
     align-items: center;
-    max-width: 700px;
-    input,
-    textarea {
-      width: 500px;
-      margin-bottom: 20px;
-      resize: vertical;
-    }
-    textarea {
-      font-size: 20px;
-      min-height: 230px;
-    }
-    button {
-      font-size: 28px;
-      padding: 12px;
-    }
-    .input-div {
-      margin-bottom: 12px;
+  }
+  background-color: #eee;
+
+  .add-post {
+    display: flex;
+    justify-content: center;
+
+    background-color: #fff;
+    max-width: 600px;
+    padding: 24px 42px;
+    border-radius: 6px;
+
+    .add-post-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 700px;
+
+      .form-title {
+        font-size: 42px;
+      }
+
+      .bottom-link {
+        color: #111;
+        font-size: 18px;
+        font-weight: 600;
+        margin-top: 12px;
+      }
+      .bottom-link:hover {
+        color: #222;
+      }
+
+      input,
+      textarea {
+        width: 500px;
+        margin-bottom: 20px;
+        resize: vertical;
+      }
+      textarea {
+        font-size: 20px;
+        min-height: 230px;
+      }
+      button {
+        font-size: 22px;
+        padding: 12px;
+      }
+      .input-div {
+        margin-bottom: 12px;
+      }
     }
   }
 }

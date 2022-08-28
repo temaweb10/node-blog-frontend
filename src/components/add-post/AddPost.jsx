@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../add-post/AddPost.module.scss";
+import Auth from "../auth/Auth";
 import Button from "../button/Button";
 import Header from "../header/Header";
 import Input from "../input/Input";
@@ -34,6 +35,7 @@ function AddPost() {
   return (
     <div>
       <Header />
+      <Auth />
       <div className={styles["add-post"]}>
         <div className={styles["add-post-content"]}>
           <div className={styles["input-div"]}>

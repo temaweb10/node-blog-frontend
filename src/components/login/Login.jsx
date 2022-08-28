@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "../add-post/AddPost.module.scss";
 import Button from "../button/Button";
 import Header from "../header/Header";
@@ -48,32 +48,38 @@ function Login() {
   }, [user]);
 
   return (
-    <div className={styles["add-post"]}>
-      <div className={styles["add-post-content"]}>
-        <div className={styles["input-div"]}>
-          <Input
-            type="text"
-            name="login"
-            onchange={(e) => {
-              setValues({ ...values, login: e.target.value });
-            }}
-            placeholder="Логин"
-          />
-        </div>
+    <div className={styles["form-parent"]}>
+      <div className={styles["add-post"]}>
+        <div className={styles["add-post-content"]}>
+          <h1 className={styles["form-title"]}>Авторизация</h1>
+          <div className={styles["input-div"]}>
+            <Input
+              type="text"
+              name="login"
+              onchange={(e) => {
+                setValues({ ...values, login: e.target.value });
+              }}
+              placeholder="Логин"
+            />
+          </div>
 
-        <div className="input-div">
-          <Input
-            type="text"
-            name="password"
-            onchange={(e) => {
-              setValues({ ...values, password: e.target.value });
-            }}
-            placeholder="Пароль"
-          />
-        </div>
+          <div className="input-div">
+            <Input
+              type="text"
+              name="password"
+              onchange={(e) => {
+                setValues({ ...values, password: e.target.value });
+              }}
+              placeholder="Пароль"
+            />
+          </div>
 
-        <div className="form-button">
-          <Button click={login}>Добавить</Button>
+          <div className="form-button">
+            <Button click={login}>Войти в аккаунт</Button>
+          </div>
+          <Link to="/register" className={styles["bottom-link"]}>
+            Уже зарегестрированы?
+          </Link>
         </div>
       </div>
     </div>
