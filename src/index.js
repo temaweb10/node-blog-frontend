@@ -9,7 +9,7 @@ import EditPost from "./components/edit-post/EditPost";
 import Header from "./components/header/Header";
 import PostId from "./components/post/PostId";
 import Posts from "./components/Posts/Posts";
-
+import Registration from "./components/registration/Registration";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
@@ -25,8 +25,9 @@ root.render(
           </div>
         }
       />
+      <Route path="/register" element={<Registration />} />
       <Route
-        path="/post/:id"
+        path="post/:id"
         element={
           <div>
             <Header />
