@@ -5,6 +5,7 @@ import styles from "../add-post/AddPost.module.scss";
 import Button from "../button/Button";
 import Header from "../header/Header";
 import Input from "../input/Input";
+import TextArea from "../textarea/TextArea";
 function AddPost() {
   const [values, setValues] = useState({
     title: "",
@@ -37,29 +38,35 @@ function AddPost() {
       <Header />
       <div className={styles["add-post"]}>
         <div className={styles["add-post-content"]}>
-          <Input
-            type="text"
-            name="title"
-            onchange={(e) => {
-              setValues({ ...values, title: e.target.value });
-            }}
-            placeholder="Заголовок"
-          />
-          <Input
-            type="text"
-            name="title"
-            onchange={(e) => {
-              setValues({ ...values, author: e.target.value });
-            }}
-            placeholder="Автор"
-          />
+          <div className={styles["input-div"]}>
+            <Input
+              type="text"
+              name="title"
+              onchange={(e) => {
+                setValues({ ...values, title: e.target.value });
+              }}
+              placeholder="Заголовок"
+            />
+          </div>
 
-          <textarea
-            name="text"
-            onChange={(e) => {
-              setValues({ ...values, text: e.target.value });
-            }}
-          ></textarea>
+          <div className="input-div">
+            <Input
+              type="text"
+              name="title"
+              onchange={(e) => {
+                setValues({ ...values, author: e.target.value });
+              }}
+              placeholder="Автор"
+            />
+          </div>
+
+          <div className="input-div">
+            <TextArea
+              onchange={(e) => {
+                setValues({ ...values, text: e.target.value });
+              }}
+            />
+          </div>
 
           <div className="form-button">
             <Button click={addPost}>Добавить</Button>

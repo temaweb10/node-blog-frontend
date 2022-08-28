@@ -58,3 +58,7 @@ textarea {
   border: 1px solid #000;
   outline: none;
 }
+
+#standard-basic {
+  margin-bottom: 0;
+}
