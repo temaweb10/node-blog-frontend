@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../header/Header";
+import Loading from "../loading/Loading";
 import User from "./User";
 function Users() {
   const [users, setUsers] = useState();
@@ -49,7 +50,7 @@ function Users() {
             ))}
           </Grid>
         ) : (
-          <p>Загрузка...</p>
+          <Loading />
         )}
       </div>
     </div>

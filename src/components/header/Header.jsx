@@ -1,3 +1,4 @@
+import Avatar from "@mui/material/Avatar";
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../header/Header.module.scss";
@@ -21,7 +22,16 @@ function Header() {
         </Link>
 
         <Link className={styles["header-link"]} to="/">
-          {localStorage.getItem("login")}
+          <Avatar
+            sx={{
+              bgcolor: "#fff",
+              color: "#000",
+              fontSize: "24px",
+            }}
+            aria-label="recipe"
+          >
+            {localStorage.getItem("login").slice(0, 1).toUpperCase()}
+          </Avatar>
         </Link>
       </nav>
     </header>
