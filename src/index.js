@@ -17,7 +17,7 @@ root.render(
       <Route path="add-post" element={<AddPost />} />
       <Route path="/" element={<App />} />
       <Route
-        path="/posts"
+        path="posts"
         element={
           <div>
             <Header />
@@ -35,6 +35,7 @@ root.render(
         }
       />
       <Route path="edit-post/:id" element={<EditPost />} />
+
       <Route path="*" element={<Error404 type="page" />} />
     </Routes>
   </BrowserRouter>
