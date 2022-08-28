@@ -12,9 +12,7 @@ function AddPost() {
     author: "",
     text: "",
   });
-  useEffect(() => {
-    console.log(values);
-  }, [values]);
+
   const navigate = useNavigate();
 
   const addPost = (e) => {
