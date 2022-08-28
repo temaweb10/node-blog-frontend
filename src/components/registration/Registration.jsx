@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "../add-post/AddPost.module.scss";
 import Button from "../button/Button";
 import Header from "../header/Header";
@@ -10,15 +11,18 @@ function Registration() {
     login: "",
     password: "",
   });
+
+  const navigate = useNavigate();
+
   /* https://her-backendg.herokuapp.com */
   const register = () => {
     axios
-      .post("/api/user/create", {
-        login: "test",
-        password: "niger",
+      .post("https://her-backendg.herokuapp.com/api/user/create", {
+        ...values,
       })
       .then(function (response) {
         console.log(response);
+        navigate("/login");
       })
       .catch(function (error) {
         console.log(error);

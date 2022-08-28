@@ -9,7 +9,7 @@ import TextArea from "../textarea/TextArea";
 function AddPost() {
   const [values, setValues] = useState({
     title: "",
-    author: "",
+    author: localStorage.getItem("login"),
     text: "",
   });
 
@@ -47,7 +47,7 @@ function AddPost() {
             />
           </div>
 
-          <div className="input-div">
+          {/*   <div className="input-div">
             <Input
               type="text"
               name="title"
@@ -56,7 +56,7 @@ function AddPost() {
               }}
               placeholder="Автор"
             />
-          </div>
+          </div> */}
 
           <div className="input-div">
             <TextArea

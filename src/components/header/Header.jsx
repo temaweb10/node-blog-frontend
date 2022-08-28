@@ -19,6 +19,10 @@ function Header() {
         <Link className={styles["header-link"]} to="/posts">
           Посты
         </Link>
+
+        <Link className={styles["header-link"]} to="/">
+          {localStorage.getItem("login")}
+        </Link>
       </nav>
     </header>
   );

@@ -62,3 +62,9 @@ textarea {
 #standard-basic {
   margin-bottom: 0;
 }
+
+@media (max-width: 890px) {
+  .page {
+    padding: 20px;
+  }
+}

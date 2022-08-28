@@ -7,9 +7,14 @@ import Error404 from "./components/404/Error404";
 import AddPost from "./components/add-post/AddPost";
 import EditPost from "./components/edit-post/EditPost";
 import Header from "./components/header/Header";
+import Login from "./components/login/Login";
 import PostId from "./components/post/PostId";
 import Posts from "./components/Posts/Posts";
+import Profile from "./components/profile/Profile";
 import Registration from "./components/registration/Registration";
+import User from "./components/users/User";
+import Users from "./components/users/Users";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
@@ -26,6 +31,9 @@ root.render(
         }
       />
       <Route path="/register" element={<Registration />} />
+      <Route />
+
+      <Route path="/login" element={<Login />} />
       <Route
         path="post/:id"
         element={
@@ -36,6 +44,9 @@ root.render(
         }
       />
       <Route path="edit-post/:id" element={<EditPost />} />
+
+      <Route path="users" element={<Users />} />
+      <Route path="user/:login" element={<Profile />} />
 
       <Route path="*" element={<Error404 type="page" />} />
     </Routes>

@@ -1,3 +1,5 @@
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 import axios from "axios";
 import React from "react";
 import { AiOutlineEdit } from "react-icons/ai";
@@ -24,7 +26,7 @@ function Post({ data, allPosts, filterPosts }) {
   };
 
   return (
-    <div className={styles.post}>
+    <Card className={styles.post}>
       <div className={styles["parent-title"]}>
         <Link to={`/post/${data._id}`} style={{ textDecoration: "none" }}>
           <h1 className={styles["post-title"]}>{data.title}</h1>
@@ -51,7 +53,7 @@ function Post({ data, allPosts, filterPosts }) {
       </div>
 
       <p className={styles["post-text"]}>{data.text}</p>
-    </div>
+    </Card>
   );
 }
 
